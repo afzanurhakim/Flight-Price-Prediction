@@ -1,0 +1,51 @@
+Conceptual Problems
+
+1. Jelaskan latar belakang adanya bagging dan cara kerja bagging !
+
+Latar Belakang
+
+Bagging (Bootstrap Aggregating) adalah salah satu metode ensemble learning yang dikembangkan untuk mengatasi dua masalah utama pada model tunggal (seperti Decision Tree), masalah pertama
+adalah Overfitting (Variansi Tinggi), model tunggal seperti decission tree yang dalam sangat sensitif terhadap data train. Perubahan kecil pada data Train dapat menghasilkan struktur pohon
+yang berbeda, sehingga performa akan buruk saat diuji pada data baru, yang kedua adalah ketidakstabilan model, model yang memiliki variansi tinggi menghasilkan prediksi yang tidak konsisten.
+Bagging bertujuan untuk merata-ratakan prediksi dari banyak model untuk mengurangi variansi ini
+
+Cara kerja
+
+Bagging memiliki dua langkah utama yaitu Bootstrapping dan Aggregating
+
+Bootstrapping merupakan pengambilan sampel dengan pengembalian
+Dari dataset pelatihan asli (D), dilakukan pengambilan sampel berulang kali (biasanya sejumlah k kali) untuk menghasilkan k subset data baru (D1, D2, ..., Dk)
+Setiap subset baru, Di, memiliki ukuran yang sama dengan dataset asli, tetapi dipilih dengan pengembalian. Ini berarti satu titik data dapat muncul di beberapa subset atau tidak sama sekali
+Karena pengambilan sampel dengan pengembalian, setiap subset baru bersifat independen dan sedikit berbeda dari yang lain. Secara statistik, setiap subset akan berisi sekitar 63,2% data unik dari dataset asli,
+dan sisanya ada duplikasi
+
+Aggregating merupakan penggabungan prediksi, setelah k model latih (base learner) dibangun menggunakan masing-masing subset data (D1 melatih model 1, D2 melatih Model 2, dst.), prediksi dari k model ini digabungkan
+(dijumlahkan), untuk regresi, hasil prediksi akhir ada rata-rata dari semua prediksi model
+
+Proses ini secara efektif mengurangi variansi model tanpa meningkatkan bias secara signifikan, menghasilkan model ensemble yang lebih kuat dan stabil
+
+2. Jelaskan perbedaan cara kerja algoritma Random Forest dengan algoritma boosting yang Anda pilih !
+
+Algoritma Random Forest adalah implementasi dari Bagging, kemudian algoritma boosting yang dipakai pada project ini adalah Gradient Boosting, kedua algoritma ini bekerja dengan cara yang berbeda
+
+Random forest memiliki prinsip paralel dan independen. Setiap pohon dibuat secara independen dari pohon yang lain, bertujuan untuk mengurangi variansi dengan merata-ratakan prediksi dari banyak model yang independen, menggunakan
+subset data yang berbeda hasil Bootstrapping (pengambilan sampel dengan pengembalian) untuk setiap pohon, fokus utamanya diversity pohon, penggabungannya adalah rata-rata hasil prediksi dari semua pohon
+
+Gradient Boosting regressor memiliki prinsip dasar sekuensial dan dependen. Setiap pohon dibuat secara berurutan dan berusaha memperbaiki error dari pohon sebelumnya, bertujuan untuk mengurangi bias secara bertahap meningkatkan akurasi model
+dengan memfokuskan pada kesalahan yang tersisa, fokus utamanya adalah koreksi kesalahan, penggabungan dengan penjumlahan tertimbang hasil prediksi dari setiap pohon yang baru, yang ditambahkan ke prediksi akumulatif sebelumnya
+
+Sehingga random forest bisa dibilang membangun "hutan" berisi pohon-pohon yang beragam secara paralel dan kemudian mengambil rata-rata untuk mendapatkan keputusan yang lebih stabil,
+sementara gradient boosting membangun pohon secara berurutan di mana setiap pohon baru berfokus untuk memperbaiki kesalahan yang dibuat oleh semua pohon sebelumnya
+
+3. Jelaskan apa yang dimaksud dengan Cross Validation !
+
+Cross-Validation (Validasi Silang) adalah teknik statistik yang digunakan untuk mengevaluasi performa model Machine Learning pada dataset independen. Tujuannya adalah untuk menguji seberapa baik model dapat menggeneralisasi data yang belum
+pernah dilihat sebelumnya dan untuk menghindari overfitting
+
+Metode yang paling umum adalah K Fod Cross Validation, di mana cv ini melakukan pembagian data yang akan membuat dataset pelatihan asli dibagi menjadi K bagian dengan ukuran yang kurang lebih sama,
+kemudian proses diulang sebanyak K kali atau iterasi, pada setiap iterasi, satu fold digunakan sebagai data pengujian (Test/Validation Set), Sisa K-1 folds digabungkan dan digunakan sebagai data pelatihan (Training Set),
+Model kemudian dilatih pada data pelatihan dan diuji pada data pengujian, dan metrik evaluasi seperti MAE, RMSE, R2nya dicatat, setelah K iterasi selesai, skor performa model akhir dihitung sebagai
+rata-rata dari K skor yang telah dicatat
+
+Cross validation penting untuk memerikan estimasi yang lebih akurat tentang bagaimana model akan bekerja pada data baru yang belum pernah dilihat sebelumnya, kemudian memastikan bahwa performa model tidak bergantung pada satu pembagian data acak
+tertentu antara training dan test set, cv juga sering digunakan dalam proses hyperparameter tuning untuk memilih kombinasi hyperparameter terbaik

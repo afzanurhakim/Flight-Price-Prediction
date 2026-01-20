@@ -1,0 +1,3 @@
+URL dataset: https://www.kaggle.com/datasets/shubhambathwal/flight-price-prediction/data
+URL model: https://drive.google.com/file/d/161F7rH_98D0M5BkEBGGYd1fEcsYiLTkx/view?usp=drive_link
+URL deployment: https://huggingface.co/spaces/afzanurhakim/Flight-Price-Prediction
