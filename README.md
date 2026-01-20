@@ -22,7 +22,7 @@ Membangun model Machine Learning Regression yang mampu memprediksi Harga tiket p
 Serta space HuggingFace untuk EDA dan prediksi
 
 ## Data
-Dataset ini berisi dataset penerbangan di India dari bulan Februari - Maret 2022. Data didapat dari website Ease My Trip. Data memiliki informasi tentang maskapai penerbangan, kode penerbangan, kota asal, waktu keberangkatan, total perhentian, waktu kedatangan, kota tujuan, kelas penerbangan, durasi penerbangan, jarak antara booking dengan penerbangan, dan price sebagai targetnya. Terdapat total 2.890 baris
+Dataset ini berisi dataset penerbangan di India dari bulan Februari - Maret 2022. Dataset didapat dari Kaggle yang diperoleh dari scrapping EaseMyTrip (https://www.kaggle.com/datasets/shubhambathwal/flight-price-prediction/data). Data memiliki informasi tentang maskapai penerbangan, kode penerbangan, kota asal, waktu keberangkatan, total perhentian, waktu kedatangan, kota tujuan, kelas penerbangan, durasi penerbangan, jarak antara booking dengan penerbangan, dan price sebagai targetnya. Terdapat total 2.890 baris
 
 ## Method
 Project ini menggunakan model supervised learning dengan model K Neighbors Regressor, SVR, Decission Tree Regressor, Random Forest Regressor, Gradient Boosting Regressor
@@ -32,5 +32,6 @@ Python, Pandas, numPy, Matplotlib, Seaborn, scikit-learn, sciPy, plotly-express,
 
 ## Reference
 Huggingface URL: https://huggingface.co/spaces/afzanurhakim/Flight-Price-Prediction
+
 
 
