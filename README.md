@@ -1,7 +1,7 @@
 # Flight Price Prediction
 
 ## Repository Outline
-1. description.md - Penjelasan gambaran umum project
+1. README.md - Penjelasan gambaran umum project
 2. P1M2_muhammad_afza.ipynb - Notebook berisi EDA dan Model dari project
 3. P1M2_muhammad_afza_inf.ipynb - Notebook berisi inferencing untuk model yang telah dibangun
 4. P1M2_muhammad_afza_conceptual.txt - Notepad berisi jawaban untuk pertanyaan conceptual
@@ -32,4 +32,5 @@ Python, Pandas, numPy, Matplotlib, Seaborn, scikit-learn, sciPy, plotly-express,
 
 ## Reference
 Huggingface URL: https://huggingface.co/spaces/afzanurhakim/Flight-Price-Prediction
+
 
